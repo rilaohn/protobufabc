@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.BufferedReader;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Base64;
 
 @RestController
@@ -27,7 +29,7 @@ public class ProtobufController {
         for(byte b : person.toByteArray()){
             System.out.print(b);
         }
-
+        System.out.println();
         return Base64.getEncoder().encode(person.toByteArray());
     }
 
@@ -35,8 +37,22 @@ public class ProtobufController {
     public void post(HttpServletRequest request, byte[] proto){
         try {
             InputStream is = request.getInputStream();
+            BufferedReader in = new BufferedReader(new InputStreamReader(is));
+            StringBuffer buffer = new StringBuffer();
+            String msg = null;
+            while((msg=in.readLine()) != null){
+                buffer.append(msg);
+            }
+            System.out.println("buffer" + buffer);
+            StringBuffer sb = new StringBuffer();
+            for (int i =0; i < proto.length; i++){
+                System.out.print(proto[i]);
+                sb.append(proto[i]);
+            }
+            System.out.println();
+            System.out.println(sb.toString());
             Person.PersonMessage pm = Person.PersonMessage.parseFrom(proto);
-            System.out.println("\n地址是： " + pm.getAddress());
+            System.out.println("地址是： " + pm.getAddress());
         } catch (Exception e) {
             e.printStackTrace();
         }

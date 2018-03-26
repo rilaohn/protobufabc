@@ -54,8 +54,17 @@
             var fd = new FormData();
             var blob = new Blob(buffer, {type: "application/octet-stream"});
             fd.append('proto', buffer);
-            console.log('blob', blob)
-            axios.post('../proto/post', fd).then(function (value) {
+            console.log('blob', blob);
+            // axios.post('../proto/post', fd).then(function (value) {
+            //     console.log(value)
+            // })
+            axios({
+                url: '../proto/post',
+                method: 'post',
+                headers: {
+                    'Content-Type': "application/octet-stream"
+                }
+            }).then(function (value) {
                 console.log(value)
             })
         });
