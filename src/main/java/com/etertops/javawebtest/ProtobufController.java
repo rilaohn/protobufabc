@@ -5,12 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.Base64;
 
 @RestController
@@ -36,11 +32,11 @@ public class ProtobufController {
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
-    public void post(HttpServletRequest request){
+    public void post(HttpServletRequest request, byte[] proto){
         try {
             InputStream is = request.getInputStream();
-            Person.PersonMessage pm = Person.PersonMessage.parseFrom(is);
-            System.out.println(pm.getAddress());
+            Person.PersonMessage pm = Person.PersonMessage.parseFrom(proto);
+            System.out.println("\n地址是： " + pm.getAddress());
         } catch (Exception e) {
             e.printStackTrace();
         }
