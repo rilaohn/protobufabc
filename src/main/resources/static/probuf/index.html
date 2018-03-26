@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Protocol Buffer</title>
+    <script src="axios.js"></script>
+    <script src="long.js"></script>
+    <script src="bytebuffer.js"></script>
+    <script src="protobuf.js"></script>
+</head>
+<body>
+<h1 style="width: 100%; text-align: center">Protocol Buffer Data Test!</h1>
+</body>
+<script>
+    console.log("window: ", window);
+    console.log("protobuf: ", protobuf);
+    var personMessage = null;
+    axios.get("../proto").then(function (value){
+        var buffer =  value.data;
+        console.log('data: ', buffer);
+        console.log('buffer type: ', typeof buffer);
+        var buf = Uint8Array.from(buffer);
+        console.log('buffer object: ', buf);
+        protobuf.load('../protos/person.proto').then(function (root) {
+            console.log('root: ', root);
+            personMessage = root.lookupType('com.example.protos.PersonMessage');
+            console.log("pm: ", personMessage);
+            var person = personMessage.decode(buf);
+            console.log(person)
+        });
+
+    })
+</script>
+</html>
