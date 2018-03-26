@@ -4,10 +4,13 @@ import com.etertops.protos.Person;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Base64;
+
 @RestController
+@RequestMapping("proto")
 public class ProtobufController {
 
-    @RequestMapping("proto")
+    @RequestMapping("/get")
     public byte[] send(){
         Person.PersonMessage.Builder personBuilder = Person.PersonMessage.newBuilder();
         personBuilder.setId("test001");
@@ -22,6 +25,6 @@ public class ProtobufController {
             System.out.print(b);
         }
 
-        return person.toByteArray();
+        return Base64.getEncoder().encode(person.toByteArray());
     }
 }

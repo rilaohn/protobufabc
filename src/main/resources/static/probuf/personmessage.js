@@ -7,7 +7,7 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-goog.provide('proto.com.example.protos.PersonMessage');
+goog.provide('proto.com.etertops.protos.PersonMessage');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
@@ -24,12 +24,12 @@ goog.require('jspb.Message');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.com.example.protos.PersonMessage = function(opt_data) {
+proto.com.etertops.protos.PersonMessage = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.com.example.protos.PersonMessage, jspb.Message);
+goog.inherits(proto.com.etertops.protos.PersonMessage, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.com.example.protos.PersonMessage.displayName = 'proto.com.example.protos.PersonMessage';
+  proto.com.etertops.protos.PersonMessage.displayName = 'proto.com.etertops.protos.PersonMessage';
 }
 
 
@@ -44,8 +44,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.com.example.protos.PersonMessage.prototype.toObject = function(opt_includeInstance) {
-  return proto.com.example.protos.PersonMessage.toObject(opt_includeInstance, this);
+proto.com.etertops.protos.PersonMessage.prototype.toObject = function(opt_includeInstance) {
+  return proto.com.etertops.protos.PersonMessage.toObject(opt_includeInstance, this);
 };
 
 
@@ -54,11 +54,11 @@ proto.com.example.protos.PersonMessage.prototype.toObject = function(opt_include
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.com.example.protos.PersonMessage} msg The msg instance to transform.
+ * @param {!proto.com.etertops.protos.PersonMessage} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.com.example.protos.PersonMessage.toObject = function(includeInstance, msg) {
+proto.com.etertops.protos.PersonMessage.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
@@ -79,23 +79,23 @@ proto.com.example.protos.PersonMessage.toObject = function(includeInstance, msg)
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.com.example.protos.PersonMessage}
+ * @return {!proto.com.etertops.protos.PersonMessage}
  */
-proto.com.example.protos.PersonMessage.deserializeBinary = function(bytes) {
+proto.com.etertops.protos.PersonMessage.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.com.example.protos.PersonMessage;
-  return proto.com.example.protos.PersonMessage.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.com.etertops.protos.PersonMessage;
+  return proto.com.etertops.protos.PersonMessage.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.com.example.protos.PersonMessage} msg The message object to deserialize into.
+ * @param {!proto.com.etertops.protos.PersonMessage} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.com.example.protos.PersonMessage}
+ * @return {!proto.com.etertops.protos.PersonMessage}
  */
-proto.com.example.protos.PersonMessage.deserializeBinaryFromReader = function(msg, reader) {
+proto.com.etertops.protos.PersonMessage.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -139,9 +139,9 @@ proto.com.example.protos.PersonMessage.deserializeBinaryFromReader = function(ms
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.com.example.protos.PersonMessage.prototype.serializeBinary = function() {
+proto.com.etertops.protos.PersonMessage.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.com.example.protos.PersonMessage.serializeBinaryToWriter(this, writer);
+  proto.com.etertops.protos.PersonMessage.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -149,11 +149,11 @@ proto.com.example.protos.PersonMessage.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.com.example.protos.PersonMessage} message
+ * @param {!proto.com.etertops.protos.PersonMessage} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.com.example.protos.PersonMessage.serializeBinaryToWriter = function(message, writer) {
+proto.com.etertops.protos.PersonMessage.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getId();
   if (f.length > 0) {
@@ -204,13 +204,13 @@ proto.com.example.protos.PersonMessage.serializeBinaryToWriter = function(messag
  * optional string id = 1;
  * @return {string}
  */
-proto.com.example.protos.PersonMessage.prototype.getId = function() {
+proto.com.etertops.protos.PersonMessage.prototype.getId = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.com.example.protos.PersonMessage.prototype.setId = function(value) {
+proto.com.etertops.protos.PersonMessage.prototype.setId = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -219,13 +219,13 @@ proto.com.example.protos.PersonMessage.prototype.setId = function(value) {
  * optional string name = 2;
  * @return {string}
  */
-proto.com.example.protos.PersonMessage.prototype.getName = function() {
+proto.com.etertops.protos.PersonMessage.prototype.getName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /** @param {string} value */
-proto.com.example.protos.PersonMessage.prototype.setName = function(value) {
+proto.com.etertops.protos.PersonMessage.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 2, value);
 };
 
@@ -234,13 +234,13 @@ proto.com.example.protos.PersonMessage.prototype.setName = function(value) {
  * optional string sex = 3;
  * @return {string}
  */
-proto.com.example.protos.PersonMessage.prototype.getSex = function() {
+proto.com.etertops.protos.PersonMessage.prototype.getSex = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /** @param {string} value */
-proto.com.example.protos.PersonMessage.prototype.setSex = function(value) {
+proto.com.etertops.protos.PersonMessage.prototype.setSex = function(value) {
   jspb.Message.setProto3StringField(this, 3, value);
 };
 
@@ -249,13 +249,13 @@ proto.com.example.protos.PersonMessage.prototype.setSex = function(value) {
  * optional string address = 4;
  * @return {string}
  */
-proto.com.example.protos.PersonMessage.prototype.getAddress = function() {
+proto.com.etertops.protos.PersonMessage.prototype.getAddress = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
 /** @param {string} value */
-proto.com.example.protos.PersonMessage.prototype.setAddress = function(value) {
+proto.com.etertops.protos.PersonMessage.prototype.setAddress = function(value) {
   jspb.Message.setProto3StringField(this, 4, value);
 };
 
@@ -264,13 +264,13 @@ proto.com.example.protos.PersonMessage.prototype.setAddress = function(value) {
  * optional int32 age = 5;
  * @return {number}
  */
-proto.com.example.protos.PersonMessage.prototype.getAge = function() {
+proto.com.etertops.protos.PersonMessage.prototype.getAge = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
 /** @param {number} value */
-proto.com.example.protos.PersonMessage.prototype.setAge = function(value) {
+proto.com.etertops.protos.PersonMessage.prototype.setAge = function(value) {
   jspb.Message.setProto3IntField(this, 5, value);
 };
 
@@ -279,13 +279,13 @@ proto.com.example.protos.PersonMessage.prototype.setAge = function(value) {
  * optional string phone = 6;
  * @return {string}
  */
-proto.com.example.protos.PersonMessage.prototype.getPhone = function() {
+proto.com.etertops.protos.PersonMessage.prototype.getPhone = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
 /** @param {string} value */
-proto.com.example.protos.PersonMessage.prototype.setPhone = function(value) {
+proto.com.etertops.protos.PersonMessage.prototype.setPhone = function(value) {
   jspb.Message.setProto3StringField(this, 6, value);
 };
 

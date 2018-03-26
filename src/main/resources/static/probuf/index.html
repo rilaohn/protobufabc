@@ -15,17 +15,19 @@
     console.log("window: ", window);
     console.log("protobuf: ", protobuf);
     var personMessage = null;
-    axios.get("../proto").then(function (value){
+    axios.get("../proto/get").then(function (value){
         var buffer =  value.data;
         console.log('data: ', buffer);
         console.log('buffer type: ', typeof buffer);
-        var buf = Uint8Array.from(buffer);
+        // var buf = new dcodeIO.ByteBuffer().writeIString(buffer).flip()
+        var buf = new dcodeIO.ByteBuffer.fromBase64(buffer)
+        // var buf = Uint8Array.from(buffer);
         console.log('buffer object: ', buf);
         protobuf.load('../protos/person.proto').then(function (root) {
             console.log('root: ', root);
             personMessage = root.lookupType('com.example.protos.PersonMessage');
             console.log("pm: ", personMessage);
-            var person = personMessage.decode(buf);
+            var person = personMessage.decode(buf.view);
             console.log(person)
         });
 

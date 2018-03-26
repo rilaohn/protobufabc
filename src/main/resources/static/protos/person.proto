@@ -1,5 +1,5 @@
 syntax = "proto3";
-package com.example.protos;
+package com.etertops.protos;
 
 message PersonMessage{
     string id = 1;
