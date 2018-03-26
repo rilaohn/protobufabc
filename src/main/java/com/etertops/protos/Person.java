@@ -174,14 +174,14 @@ public final class Person {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.etertops.protos.Person.internal_static_com_example_protos_PersonMessage_descriptor;
+      return Person.internal_static_com_etertops_protos_PersonMessage_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.etertops.protos.Person.internal_static_com_example_protos_PersonMessage_fieldAccessorTable
+      return Person.internal_static_com_etertops_protos_PersonMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.etertops.protos.Person.PersonMessage.class, com.etertops.protos.Person.PersonMessage.Builder.class);
+              PersonMessage.class, Builder.class);
     }
 
     public static final int ID_FIELD_NUMBER = 1;
@@ -194,7 +194,7 @@ public final class Person {
       if (ref instanceof String) {
         return (String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
         id_ = s;
@@ -208,7 +208,7 @@ public final class Person {
         getIdBytes() {
       Object ref = id_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         id_ = b;
@@ -228,7 +228,7 @@ public final class Person {
       if (ref instanceof String) {
         return (String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
         name_ = s;
@@ -242,7 +242,7 @@ public final class Person {
         getNameBytes() {
       Object ref = name_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         name_ = b;
@@ -262,7 +262,7 @@ public final class Person {
       if (ref instanceof String) {
         return (String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
         sex_ = s;
@@ -276,7 +276,7 @@ public final class Person {
         getSexBytes() {
       Object ref = sex_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         sex_ = b;
@@ -296,7 +296,7 @@ public final class Person {
       if (ref instanceof String) {
         return (String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
         address_ = s;
@@ -310,7 +310,7 @@ public final class Person {
         getAddressBytes() {
       Object ref = address_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         address_ = b;
@@ -339,7 +339,7 @@ public final class Person {
       if (ref instanceof String) {
         return (String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
         phone_ = s;
@@ -353,7 +353,7 @@ public final class Person {
         getPhoneBytes() {
       Object ref = phone_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         phone_ = b;
@@ -430,10 +430,10 @@ public final class Person {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.etertops.protos.Person.PersonMessage)) {
+      if (!(obj instanceof PersonMessage)) {
         return super.equals(obj);
       }
-      com.etertops.protos.Person.PersonMessage other = (com.etertops.protos.Person.PersonMessage) obj;
+      PersonMessage other = (PersonMessage) obj;
 
       boolean result = true;
       result = result && getId()
@@ -476,69 +476,69 @@ public final class Person {
       return hash;
     }
 
-    public static com.etertops.protos.Person.PersonMessage parseFrom(
+    public static PersonMessage parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.etertops.protos.Person.PersonMessage parseFrom(
+    public static PersonMessage parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.etertops.protos.Person.PersonMessage parseFrom(
+    public static PersonMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.etertops.protos.Person.PersonMessage parseFrom(
+    public static PersonMessage parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.etertops.protos.Person.PersonMessage parseFrom(byte[] data)
+    public static PersonMessage parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.etertops.protos.Person.PersonMessage parseFrom(
+    public static PersonMessage parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.etertops.protos.Person.PersonMessage parseFrom(java.io.InputStream input)
+    public static PersonMessage parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.etertops.protos.Person.PersonMessage parseFrom(
+    public static PersonMessage parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.etertops.protos.Person.PersonMessage parseDelimitedFrom(java.io.InputStream input)
+    public static PersonMessage parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.etertops.protos.Person.PersonMessage parseDelimitedFrom(
+    public static PersonMessage parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.etertops.protos.Person.PersonMessage parseFrom(
+    public static PersonMessage parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.etertops.protos.Person.PersonMessage parseFrom(
+    public static PersonMessage parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -550,7 +550,7 @@ public final class Person {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.etertops.protos.Person.PersonMessage prototype) {
+    public static Builder newBuilder(PersonMessage prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -560,7 +560,7 @@ public final class Person {
 
     @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -570,17 +570,17 @@ public final class Person {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.etertops.protos.PersonMessage)
-        com.etertops.protos.Person.PersonMessageOrBuilder {
+        PersonMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.etertops.protos.Person.internal_static_com_example_protos_PersonMessage_descriptor;
+        return Person.internal_static_com_etertops_protos_PersonMessage_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.etertops.protos.Person.internal_static_com_example_protos_PersonMessage_fieldAccessorTable
+        return Person.internal_static_com_etertops_protos_PersonMessage_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.etertops.protos.Person.PersonMessage.class, com.etertops.protos.Person.PersonMessage.Builder.class);
+                PersonMessage.class, Builder.class);
       }
 
       // Construct using com.etertops.protos.Person.PersonMessage.newBuilder()
@@ -589,7 +589,7 @@ public final class Person {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -617,23 +617,23 @@ public final class Person {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.etertops.protos.Person.internal_static_com_example_protos_PersonMessage_descriptor;
+        return Person.internal_static_com_etertops_protos_PersonMessage_descriptor;
       }
 
-      public com.etertops.protos.Person.PersonMessage getDefaultInstanceForType() {
-        return com.etertops.protos.Person.PersonMessage.getDefaultInstance();
+      public PersonMessage getDefaultInstanceForType() {
+        return PersonMessage.getDefaultInstance();
       }
 
-      public com.etertops.protos.Person.PersonMessage build() {
-        com.etertops.protos.Person.PersonMessage result = buildPartial();
+      public PersonMessage build() {
+        PersonMessage result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.etertops.protos.Person.PersonMessage buildPartial() {
-        com.etertops.protos.Person.PersonMessage result = new com.etertops.protos.Person.PersonMessage(this);
+      public PersonMessage buildPartial() {
+        PersonMessage result = new PersonMessage(this);
         result.id_ = id_;
         result.name_ = name_;
         result.sex_ = sex_;
@@ -671,16 +671,16 @@ public final class Person {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.etertops.protos.Person.PersonMessage) {
-          return mergeFrom((com.etertops.protos.Person.PersonMessage)other);
+        if (other instanceof PersonMessage) {
+          return mergeFrom((PersonMessage)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.etertops.protos.Person.PersonMessage other) {
-        if (other == com.etertops.protos.Person.PersonMessage.getDefaultInstance()) return this;
+      public Builder mergeFrom(PersonMessage other) {
+        if (other == PersonMessage.getDefaultInstance()) return this;
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
           onChanged();
@@ -717,11 +717,11 @@ public final class Person {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.etertops.protos.Person.PersonMessage parsedMessage = null;
+        PersonMessage parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.etertops.protos.Person.PersonMessage) e.getUnfinishedMessage();
+          parsedMessage = (PersonMessage) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -754,7 +754,7 @@ public final class Person {
           getIdBytes() {
         Object ref = id_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (String) ref);
           id_ = b;
@@ -771,7 +771,7 @@ public final class Person {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         id_ = value;
         onChanged();
         return this;
@@ -780,7 +780,7 @@ public final class Person {
        * <code>string id = 1;</code>
        */
       public Builder clearId() {
-
+        
         id_ = getDefaultInstance().getId();
         onChanged();
         return this;
@@ -794,7 +794,7 @@ public final class Person {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         id_ = value;
         onChanged();
         return this;
@@ -823,7 +823,7 @@ public final class Person {
           getNameBytes() {
         Object ref = name_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (String) ref);
           name_ = b;
@@ -840,7 +840,7 @@ public final class Person {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         name_ = value;
         onChanged();
         return this;
@@ -849,7 +849,7 @@ public final class Person {
        * <code>string name = 2;</code>
        */
       public Builder clearName() {
-
+        
         name_ = getDefaultInstance().getName();
         onChanged();
         return this;
@@ -863,7 +863,7 @@ public final class Person {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         name_ = value;
         onChanged();
         return this;
@@ -892,7 +892,7 @@ public final class Person {
           getSexBytes() {
         Object ref = sex_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (String) ref);
           sex_ = b;
@@ -909,7 +909,7 @@ public final class Person {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         sex_ = value;
         onChanged();
         return this;
@@ -918,7 +918,7 @@ public final class Person {
        * <code>string sex = 3;</code>
        */
       public Builder clearSex() {
-
+        
         sex_ = getDefaultInstance().getSex();
         onChanged();
         return this;
@@ -932,7 +932,7 @@ public final class Person {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         sex_ = value;
         onChanged();
         return this;
@@ -961,7 +961,7 @@ public final class Person {
           getAddressBytes() {
         Object ref = address_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (String) ref);
           address_ = b;
@@ -978,7 +978,7 @@ public final class Person {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         address_ = value;
         onChanged();
         return this;
@@ -987,7 +987,7 @@ public final class Person {
        * <code>string address = 4;</code>
        */
       public Builder clearAddress() {
-
+        
         address_ = getDefaultInstance().getAddress();
         onChanged();
         return this;
@@ -1001,7 +1001,7 @@ public final class Person {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         address_ = value;
         onChanged();
         return this;
@@ -1018,7 +1018,7 @@ public final class Person {
        * <code>int32 age = 5;</code>
        */
       public Builder setAge(int value) {
-
+        
         age_ = value;
         onChanged();
         return this;
@@ -1027,7 +1027,7 @@ public final class Person {
        * <code>int32 age = 5;</code>
        */
       public Builder clearAge() {
-
+        
         age_ = 0;
         onChanged();
         return this;
@@ -1056,7 +1056,7 @@ public final class Person {
           getPhoneBytes() {
         Object ref = phone_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (String) ref);
           phone_ = b;
@@ -1073,7 +1073,7 @@ public final class Person {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         phone_ = value;
         onChanged();
         return this;
@@ -1082,7 +1082,7 @@ public final class Person {
        * <code>string phone = 6;</code>
        */
       public Builder clearPhone() {
-
+        
         phone_ = getDefaultInstance().getPhone();
         onChanged();
         return this;
@@ -1096,7 +1096,7 @@ public final class Person {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         phone_ = value;
         onChanged();
         return this;
@@ -1116,12 +1116,12 @@ public final class Person {
     }
 
     // @@protoc_insertion_point(class_scope:com.etertops.protos.PersonMessage)
-    private static final com.etertops.protos.Person.PersonMessage DEFAULT_INSTANCE;
+    private static final PersonMessage DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.etertops.protos.Person.PersonMessage();
+      DEFAULT_INSTANCE = new PersonMessage();
     }
 
-    public static com.etertops.protos.Person.PersonMessage getDefaultInstance() {
+    public static PersonMessage getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1144,17 +1144,17 @@ public final class Person {
       return PARSER;
     }
 
-    public com.etertops.protos.Person.PersonMessage getDefaultInstanceForType() {
+    public PersonMessage getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_example_protos_PersonMessage_descriptor;
-  private static final
+    internal_static_com_etertops_protos_PersonMessage_descriptor;
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_example_protos_PersonMessage_fieldAccessorTable;
+      internal_static_com_etertops_protos_PersonMessage_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1164,10 +1164,10 @@ public final class Person {
       descriptor;
   static {
     String[] descriptorData = {
-      "\n\014person.proto\022\022com.etertops.protos\"c\n\rPe" +
-      "rsonMessage\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\013\n" +
-      "\003sex\030\003 \001(\t\022\017\n\007address\030\004 \001(\t\022\013\n\003age\030\005 \001(\005" +
-      "\022\r\n\005phone\030\006 \001(\tb\006proto3"
+      "\n\014person.proto\022\023com.etertops.protos\"c\n\rP" +
+      "ersonMessage\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\013" +
+      "\n\003sex\030\003 \001(\t\022\017\n\007address\030\004 \001(\t\022\013\n\003age\030\005 \001(" +
+      "\005\022\r\n\005phone\030\006 \001(\tb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1181,11 +1181,11 @@ public final class Person {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_com_example_protos_PersonMessage_descriptor =
+    internal_static_com_etertops_protos_PersonMessage_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_com_example_protos_PersonMessage_fieldAccessorTable = new
+    internal_static_com_etertops_protos_PersonMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_example_protos_PersonMessage_descriptor,
+        internal_static_com_etertops_protos_PersonMessage_descriptor,
         new String[] { "Id", "Name", "Sex", "Address", "Age", "Phone", });
   }
 
