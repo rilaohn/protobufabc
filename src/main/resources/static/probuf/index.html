@@ -44,16 +44,18 @@
                 address: '中华人民共和国',
                 age: '16',
                 phone: 'made in china'
-            }
+            };
             var errMsg = personMessage.verify(payload);
             var message = personMessage.create(payload);
             var buffer = personMessage.encode(message).finish();
-            console.log('post buffer: ', buffer)
-            var arr = new Uint8Array(buffer)
-            console.log('post arr: ', arr)
+            console.log('post buffer: ', buffer);
+            var arr = new Uint8Array(buffer);
+            console.log('post arr: ', arr);
             var fd = new FormData();
-            fd.append('proto', arr)
-            axios.post('../proto/post', arr).then(function (value) {
+            var blob = new Blob(buffer, {type: "application/octet-stream"});
+            fd.append('proto', buffer);
+            console.log('blob', blob)
+            axios.post('../proto/post', fd).then(function (value) {
                 console.log(value)
             })
         });
