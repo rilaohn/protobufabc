@@ -10,6 +10,7 @@
 </head>
 <body>
 <h1 style="width: 100%; text-align: center">Protocol Buffer Data Test!</h1>
+<button style="outline: none; background: yellowgreen; color: wheat" onclick="uploadData()">上传数据</button>
 </body>
 <script>
     console.log("window: ", window);
@@ -25,12 +26,37 @@
         console.log('buffer object: ', buf);
         protobuf.load('../protos/person.proto').then(function (root) {
             console.log('root: ', root);
-            personMessage = root.lookupType('com.example.protos.PersonMessage');
+            personMessage = root.lookupType('com.etertops.protos.PersonMessage');
             console.log("pm: ", personMessage);
             var person = personMessage.decode(buf.view);
             console.log(person)
         });
 
     })
+    function uploadData() {
+        protobuf.load('../protos/person.proto').then(function (root) {
+            console.log('root: ', root);
+            personMessage = root.lookupType('com.etertops.protos.PersonMessage');
+            var payload = {
+                id: 'test id from html',
+                name: 'protobuf.js',
+                sex: '男',
+                address: '中华人民共和国',
+                age: '16',
+                phone: 'made in china'
+            }
+            var errMsg = personMessage.verify(payload);
+            var message = personMessage.create(payload);
+            var buffer = personMessage.encode(message).finish();
+            console.log('post buffer: ', buffer)
+            var arr = new Uint8Array(buffer)
+            console.log('post arr: ', arr)
+            var fd = new FormData();
+            fd.append('proto', arr)
+            axios.post('../proto/post', arr).then(function (value) {
+                console.log(value)
+            })
+        });
+    }
 </script>
 </html>

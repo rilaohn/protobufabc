@@ -2,8 +2,15 @@ package com.etertops.javawebtest;
 
 import com.etertops.protos.Person;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Base64;
 
 @RestController
@@ -26,5 +33,16 @@ public class ProtobufController {
         }
 
         return Base64.getEncoder().encode(person.toByteArray());
+    }
+
+    @RequestMapping(value = "/post", method = RequestMethod.POST)
+    public void post(HttpServletRequest request){
+        try {
+            InputStream is = request.getInputStream();
+            Person.PersonMessage pm = Person.PersonMessage.parseFrom(is);
+            System.out.println(pm.getAddress());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

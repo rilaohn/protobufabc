@@ -24,6 +24,86 @@ message PersonMessage{
 }
 ```
 > 4.编译文件： protoc --java_out=输出目录 需要编译的文件
-> 比如我在文件目录使用protoc --java_out=./ person.proto 编译person.proto编译到当前目录，文件
+> 比如我在文件目录使用protoc --java_out=./ person.proto 编译person.proto编译到当前目录，其他编译请查看官方文档
+> [编译成java文件](images/compile_java.gif)
 
+### 搭建后台服务器
+> 我这里使用的是Spring boot，服务器语言使用的是java，所以上面编译的也是java，关于服务器怎么搭建，这里不做讲述，大家自己搜索。
+
+> 1.把编译好的Person类拷贝到项目对应的目录下，
+
+> 2.新增一个控制器用于前端访问,为了方便传输对数据进行了base64编码
+```
+// 请先引入依赖
+// 依赖仓库地址
+https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java
+// maven引入
+<dependency>
+    <groupId>com.google.protobuf</groupId>
+	<artifactId>protobuf-java</artifactId>
+	<version>3.5.1</version>
+</dependency>
+
+// 控制器内容
+@RestController
+@RequestMapping("proto")
+public class ProtobufController {
+
+    @RequestMapping("/get")
+    public byte[] send(){
+        Person.PersonMessage.Builder personBuilder = Person.PersonMessage.newBuilder();
+        personBuilder.setId("test001");
+        personBuilder.setName("user test");
+        personBuilder.setSex("male");
+        personBuilder.setAddress("湖南省长沙市岳麓区银盆岭岳麓大道绿地中央广场");
+        personBuilder.setAge(18);
+        personBuilder.setPhone("18816881688");
+        Person.PersonMessage person = personBuilder.build();
+
+        for(byte b : person.toByteArray()){
+            System.out.print(b);
+        }
+
+        return Base64.getEncoder().encode(person.toByteArray());
+    }
+}
+```
+
+### 前端web页面接收, 使用protobuf.js
+> 目录
+
+> ![编译成java文件](images/catalog.png)
+
+> 
+```
+// axios.js 用于发起请求
+// long.js bytebuffer.js protobuf.js用于处理protobuf数据，
+// github地址: https://github.com/dcodeIO
+// 获取的数据是一个json字符串
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Protocol Buffer</title>
+    <script src="axios.js"></script>
+    <script src="long.js"></script>
+    <script src="bytebuffer.js"></script>
+    <script src="protobuf.js"></script>
+</head>
+<body>
+<h1 style="width: 100%; text-align: center">Protocol Buffer Data Test!</h1>
+</body>
+<script>
+    axios.get("../proto/get").then(function (value){
+        var buffer =  value.data;
+        var buf = new dcodeIO.ByteBuffer.fromBase64(buffer)
+        protobuf.load('../protos/person.proto').then(function (root) {
+            var personMessage = root.lookupType('com.etertops.protos.PersonMessage');
+            var person = personMessage.decode(buf.view);
+        });
+    })
+</script>
+</html>
+```
 
