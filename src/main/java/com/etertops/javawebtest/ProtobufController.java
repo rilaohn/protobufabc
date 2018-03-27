@@ -25,11 +25,6 @@ public class ProtobufController {
         personBuilder.setAge(18);
         personBuilder.setPhone("18816881688");
         Person.PersonMessage person = personBuilder.build();
-
-        for(byte b : person.toByteArray()){
-            System.out.print(b);
-        }
-        System.out.println();
         return Base64.getEncoder().encode(person.toByteArray());
     }
 

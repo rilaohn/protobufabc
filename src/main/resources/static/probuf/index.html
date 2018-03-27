@@ -15,28 +15,17 @@
 <script>
     console.log("window: ", window);
     console.log("protobuf: ", protobuf);
-    var personMessage = null;
     axios.get("../proto/get").then(function (value){
-        var buffer =  value.data;
-        console.log('data: ', buffer);
-        console.log('buffer type: ', typeof buffer);
-        // var buf = new dcodeIO.ByteBuffer().writeIString(buffer).flip()
-        var buf = new dcodeIO.ByteBuffer.fromBase64(buffer)
-        // var buf = Uint8Array.from(buffer);
-        console.log('buffer object: ', buf);
         protobuf.load('../protos/person.proto').then(function (root) {
-            console.log('root: ', root);
-            personMessage = root.lookupType('com.etertops.protos.PersonMessage');
-            console.log("pm: ", personMessage);
-            var person = personMessage.decode(buf.view);
+            var personMessage = root.lookupType('com.etertops.protos.PersonMessage');
+            var person = personMessage.decode(new dcodeIO.ByteBuffer.fromBase64(value.data).view);
             console.log(person)
         });
 
     })
     function uploadData() {
         protobuf.load('../protos/person.proto').then(function (root) {
-            console.log('root: ', root);
-            personMessage = root.lookupType('com.etertops.protos.PersonMessage');
+            var personMessage = root.lookupType('com.etertops.protos.PersonMessage');
             var payload = {
                 id: 'test id from html',
                 name: 'protobuf.js',
@@ -45,26 +34,12 @@
                 age: '16',
                 phone: 'made in china'
             };
-            var errMsg = personMessage.verify(payload);
             var message = personMessage.create(payload);
             var buffer = personMessage.encode(message).finish();
-            console.log('post buffer: ', buffer);
-            var arr = new Uint8Array(buffer);
-            console.log('post arr: ', arr);
+            var b64 = protobuf.util.base64.encode(buffer, 0, buffer.length)
             var fd = new FormData();
-            var blob = new Blob(buffer, {type: "application/octet-stream"});
-            fd.append('proto', buffer);
-            console.log('blob', blob);
-            // axios.post('../proto/post', fd).then(function (value) {
-            //     console.log(value)
-            // })
-            axios({
-                url: '../proto/post',
-                method: 'post',
-                headers: {
-                    'Content-Type': "application/octet-stream"
-                }
-            }).then(function (value) {
+            fd.append('proto', b64);
+            axios.post('../proto/post', fd).then(function (value) {
                 console.log(value)
             })
         });

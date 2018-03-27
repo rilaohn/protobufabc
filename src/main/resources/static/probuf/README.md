@@ -69,7 +69,7 @@ public class ProtobufController {
 }
 ```
 
-### 前端web页面接收, 使用protobuf.js
+### 前端web页面接收protobuf数据, 使用protobuf.js
 > 目录
 
 > ![编译成java文件](images/catalog.png)
@@ -107,3 +107,57 @@ public class ProtobufController {
 </html>
 ```
 
+### 前端web页面发送protobuf数据到后端
+> 为了数据稳定，需要先把uint8array转成base64编码的字符串
+```
+    function uploadData() {
+        protobuf.load('../protos/person.proto').then(function (root) {
+            var personMessage = root.lookupType('com.etertops.protos.PersonMessage');
+            var payload = {
+                id: 'test id from html',
+                name: 'protobuf.js',
+                sex: '男',
+                address: '中华人民共和国',
+                age: '16',
+                phone: 'made in china'
+            };
+            var message = personMessage.create(payload);
+            var buffer = personMessage.encode(message).finish();
+            var b64 = protobuf.util.base64.encode(buffer, 0, buffer.length)
+            var fd = new FormData();
+            fd.append('proto', b64);
+            axios.post('../proto/post', fd).then(function (value) {
+                console.log(value)
+            })
+        });
+    }
+```
+> 为什么要转成base64的字符串，我这边是为了方便数据传输，我直接上传Uint8Array字符数字，在后台解码时，不是获取不到数据就是各种错误。
+> #### 如果您有更好的方法，还请赐教！
+
+### Java 后台接收protobuf数据
+```
+@RequestMapping(value = "/post", method = RequestMethod.POST)
+public void post(String proto){
+    try {
+        Person.PersonMessage pm = Person.PersonMessage
+            .parseFrom(Base64.getDecoder().decode(proto));
+        System.out.println("id： " + pm.getId());
+        System.out.println("name： " + pm.getName());
+        System.out.println("sex： " + pm.getSex());
+        System.out.println("address： " + pm.getAddress());
+        System.out.println("age： " + pm.getAge());
+        System.out.println("phone： " + pm.getPhone());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
+//打印信息
+id： test id from html
+name： protobuf.js
+sex： 男
+address： 中华人民共和国
+age： 16
+phone： made in china
+```
