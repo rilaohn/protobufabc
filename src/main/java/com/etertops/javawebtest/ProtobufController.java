@@ -34,25 +34,15 @@ public class ProtobufController {
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
-    public void post(HttpServletRequest request, byte[] proto){
+    public void post(String proto){
         try {
-            InputStream is = request.getInputStream();
-            BufferedReader in = new BufferedReader(new InputStreamReader(is));
-            StringBuffer buffer = new StringBuffer();
-            String msg = null;
-            while((msg=in.readLine()) != null){
-                buffer.append(msg);
-            }
-            System.out.println("buffer" + buffer);
-            StringBuffer sb = new StringBuffer();
-            for (int i =0; i < proto.length; i++){
-                System.out.print(proto[i]);
-                sb.append(proto[i]);
-            }
-            System.out.println();
-            System.out.println(sb.toString());
-            Person.PersonMessage pm = Person.PersonMessage.parseFrom(proto);
-            System.out.println("地址是： " + pm.getAddress());
+            Person.PersonMessage pm = Person.PersonMessage.parseFrom(Base64.getDecoder().decode(proto));
+            System.out.println("id： " + pm.getId());
+            System.out.println("name： " + pm.getName());
+            System.out.println("sex： " + pm.getSex());
+            System.out.println("address： " + pm.getAddress());
+            System.out.println("age： " + pm.getAge());
+            System.out.println("phone： " + pm.getPhone());
         } catch (Exception e) {
             e.printStackTrace();
         }
