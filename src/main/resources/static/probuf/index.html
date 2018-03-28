@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>Protocol Buffer</title>
     <script src="axios.js"></script>
-    <script src="long.js"></script>
-    <script src="bytebuffer.js"></script>
     <script src="protobuf.js"></script>
 </head>
 <body>
@@ -13,12 +11,12 @@
 <button style="outline: none; background: yellowgreen; color: wheat" onclick="uploadData()">上传数据</button>
 </body>
 <script>
-    console.log("window: ", window);
-    console.log("protobuf: ", protobuf);
     axios.get("../proto/get").then(function (value){
         protobuf.load('../protos/person.proto').then(function (root) {
             var personMessage = root.lookupType('com.etertops.protos.PersonMessage');
-            var person = personMessage.decode(new dcodeIO.ByteBuffer.fromBase64(value.data).view);
+            var buffer = new Uint8Array(protobuf.util.base64.length(value.data))
+            protobuf.util.base64.decode(value.data, buffer, 0)
+            var person = personMessage.decode(buffer);
             console.log(person)
         });
 
